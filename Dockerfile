@@ -21,6 +21,7 @@ RUN python -m venv /py && \
     /py/bin/pip install fdb && \
     /py/bin/pip install django-firebird && \
     /py/bin/pip install firebird-driver && \
+    /py/bin/pip install firebird-lib && \
     /py/bin/pip install psycopg2 && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
