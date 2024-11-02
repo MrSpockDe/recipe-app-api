@@ -84,7 +84,7 @@ DATABASES = {
         'PORT': '5432',
     },
     'firebird': {
-        'ENGINE' : 'firebird',
+        'ENGINE' : 'django.db.backends.firebird',
         'HOST': os.environ.get('FBDB_HOST'),
         'NAME':  os.environ.get('FBDB_NAME'),
         'USER': os.environ.get('FBDB_USER'),
