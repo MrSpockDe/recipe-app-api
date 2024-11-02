@@ -18,6 +18,7 @@ ARG DEV=false
 # RUN ln -s /usr/local/lib/python3.8/dist-packages/django-firebird/firebird
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
+    /py/bin/pip install fdb && \
     /py/bin/pip install django-firebird && \
 #    /py/bin/pip install firebird-driver && \
     /py/bin/pip install psycopg2 && \
