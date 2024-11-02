@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,8 +76,23 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ.get('PGDB_HOST'),
+        'NAME': os.environ.get('PGDB_NAME'),
+        'USER': os.environ.get('PGDB_USER'),
+        'PASSWORD': os.environ.get('PGDB_PASS'),
+        'PORT': '5432',
+    },
+    'firebird': {
+        'ENGINE' : 'firebird',
+        'HOST': os.environ.get('FBDB_HOST'),
+        'NAME':  os.environ.get('FBDB_NAME'),
+        'USER': os.environ.get('FBDB_USER'),
+        'PASSWORD': os.environ.get('FBDB_PASS'),
+        'PORT': '3051',
+        'OPTIONS': {
+            'charset':'ISO8859_1'
+        },
     }
 }
 

@@ -10,3 +10,36 @@ services:
       - ./app:/app
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - PGDB_HOST=pgdb
+      - PGDB_NAME=devdb
+      - PGDB_USER=devuser
+      - PGDB_PASS=changeme
+      - FBDB_HOST=fbdb
+      - FBDB_NAME=test.fdb
+      - FGDB_USER=sysdba
+      - FGDB_PASS=masterkey
+    depends_on:
+      - pgdb
+      - fbdb
+
+  pgdb:
+    image: postgres:17.0
+    volumes:
+      - dev-pgdb-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+
+  fbdb:
+    image: jacobalberty/firebird:latest
+    environment:
+      - ISC_PASSWORD=masterkey
+    volumes:
+        - /Users/albert/DB:/firebird/data
+    ports:
+        - "3051:3050"
+
+volumes:
+  dev-pgdb-data:
