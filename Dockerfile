@@ -11,6 +11,7 @@ WORKDIR /app
 EXPOSE 8000
 
 ARG DEV=false
+RUN apt-get update && apt-get install firebird-dev libfbclient2 libgdsii-dev libib-util -y
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install firebird-driver && \
