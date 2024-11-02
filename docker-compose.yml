@@ -16,7 +16,7 @@ services:
       - PGDB_USER=devuser
       - PGDB_PASS=changeme
       - FBDB_HOST=fbdb
-      - FBDB_NAME=test.fdb
+      - FBDB_NAME=/firebird/data/test.fdb
       - FGDB_USER=sysdba
       - FGDB_PASS=masterkey
     depends_on:
