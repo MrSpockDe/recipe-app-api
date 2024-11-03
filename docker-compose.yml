@@ -26,7 +26,7 @@ services:
   pgdb:
     image: postgres:17.0
     volumes:
-      - /Users/albert/DB/postgres:/var/lib/postgresql/data
+      - dev-pgdb-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
@@ -39,11 +39,11 @@ services:
     environment:
       - ISC_PASSWORD=masterkey
     volumes:
- #       - dev-fbdb-data:/firebird/data
+        - dev-fbdb-data:/firebird/
         - /Users/albert/DB:/firebird/data
     ports:
         - "3051:3050"
 
-# volumes:
-#  dev-pgdb-data:
-#  dev-fbdb-data:
+volumes:
+  dev-pgdb-data:
+  dev-fbdb-data:
