@@ -89,7 +89,7 @@ DATABASES = {
         'NAME':  os.environ.get('FBDB_NAME'),
         'USER': os.environ.get('FBDB_USER'),
         'PASSWORD': os.environ.get('FBDB_PASS'),
-        'PORT': '3051',
+        'PORT': '3050',
         'OPTIONS': {
             'charset':'ISO8859_1'
         },
