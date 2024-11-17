@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -83,17 +84,17 @@ DATABASES = {
         'PASSWORD': os.environ.get('PGDB_PASS'),
         'PORT': '5432',
     },
-    'firebird': {
-        'ENGINE' : 'firebird',
-        'HOST': os.environ.get('FBDB_HOST'),
-        'NAME':  os.environ.get('FBDB_NAME'),
-        'USER': os.environ.get('FBDB_USER'),
-        'PASSWORD': os.environ.get('FBDB_PASS'),
-        'PORT': '3050',
-        'OPTIONS': {
-            'charset':'ISO8859_1'
-        },
-    }
+#    'firebird': {
+#        'ENGINE' : 'firebird',
+#        'HOST': os.environ.get('FBDB_HOST'),
+#        'NAME':  os.environ.get('FBDB_NAME'),
+#        'USER': os.environ.get('FBDB_USER'),
+#        'PASSWORD': os.environ.get('FBDB_PASS'),
+#        'PORT': '3050',
+#        'OPTIONS': {
+#            'charset':'ISO8859_1'
+#        },
+#   }
 }
 
 
