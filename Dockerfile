@@ -18,8 +18,8 @@ ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install django-utils-six && \
- #   /py/bin/pip install fdb && \
-    /py/bin/pip install firebird-driver && \
+    /py/bin/pip install fdb && \
+#    /py/bin/pip install firebird-driver && \
     /py/bin/pip install django-firebird && \
     /py/bin/pip install firebird-lib && \
     /py/bin/pip install psycopg2 && \
