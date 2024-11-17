@@ -84,7 +84,7 @@ DATABASES = {
 #        'PASSWORD': os.environ.get('PGDB_PASS'),
 #        'PORT': '5432',
 #    },
-    'firebird': {
+#    'firebird': {
          'ENGINE' : 'firebird',
          'HOST': os.environ.get('FBDB_HOST'),
          'NAME':  os.environ.get('FBDB_NAME'),
