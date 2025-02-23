@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.9-bookworm
 LABEL maintainer="zuzej.de"
 
 ENV PYTHONUNBUFFERED=1
@@ -16,16 +16,16 @@ ARG DEV=false
 # RUN cd /usr/local/lib/python3.8/dist-packages/django/db/backends
 # RUN ln -s /usr/local/lib/python3.8/dist-packages/django-firebird/firebird
 RUN python -m venv /py && \
+    /py/bin/pip install -r /tmp/requirements.txt && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install django-utils-six && \
-    /py/bin/pip install fdb && \
+#    /py/bin/pip install fdb && \
 #    /py/bin/pip install firebird-driver && \
-    /py/bin/pip install django-firebird && \
-    /py/bin/pip install firebird-lib && \
-    /py/bin/pip install psycopg2 && \
-    /py/bin/pip install -r /tmp/requirements.txt && \
+#    /py/bin/pip install django-firebird && \
+#    /py/bin/pip install firebird-lib && \
+#    /py/bin/pip install psycopg2 && \
     if [ $DEV = "true" ]; \
-      then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
+        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
     adduser \
@@ -35,4 +35,5 @@ RUN python -m venv /py && \
 
 ENV PATH="/py/bin:$PATH"
 
-USER root
+USER django-user 
+# USER root

@@ -83,18 +83,18 @@ DATABASES = {
 #        'USER': os.environ.get('PGDB_USER'),
 #        'PASSWORD': os.environ.get('PGDB_PASS'),
 #        'PORT': '5432',
-#    },
+    },
 #    'firebird': {
-         'ENGINE' : 'firebird',
-         'HOST': os.environ.get('FBDB_HOST'),
-         'NAME':  os.environ.get('FBDB_NAME'),
-         'USER': os.environ.get('FBDB_USER'),
-         'PASSWORD': os.environ.get('FBDB_PASS'),
-         'PORT': '3050',
-         'OPTIONS': {
-             'charset':'ISO8859_1'
-         },
-    }
+    #      'ENGINE' : 'firebird',
+    #      'HOST': os.environ.get('FBDB_HOST'),
+    #      'NAME':  os.environ.get('FBDB_NAME'),
+    #      'USER': os.environ.get('FBDB_USER'),
+    #      'PASSWORD': os.environ.get('FBDB_PASS'),
+    #      'PORT': '3050',
+    #      'OPTIONS': {
+    #          'charset':'ISO8859_1'
+    #      },
+    # }
 }
 
 
