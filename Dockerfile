@@ -6,6 +6,7 @@ ENV PYTHONUNBUFFERED=1
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
+COPY ./operations.py /tmp/operations.py
 WORKDIR /app
 EXPOSE 8000
 
@@ -19,14 +20,17 @@ RUN python -m venv /py && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install django-utils-six && \
-#    /py/bin/pip install fdb && \
-#    /py/bin/pip install firebird-driver && \
-#    /py/bin/pip install django-firebird && \
-#    /py/bin/pip install firebird-lib && \
-#    /py/bin/pip install psycopg2 && \
+    /py/bin/pip install fdb && \
+    /py/bin/pip install firebird-driver && \
+    /py/bin/pip install django-firebird && \
+    /py/bin/pip install firebird-lib && \
+    /py/bin/pip install psycopg2 && \
     if [ $DEV = "true" ]; \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
+    mv /py/lib/python3.9/site-packages/firebird/operations.py /py/lib/python3.9/site-packages/firebird/operations.oldpy && \
+    mv /tmp/operations.py /py/lib/python3.9/site-packages/firebird/operations.py && \
+    mv /py/lib/python3.9/site-packages/firebird/base/__init__.py /py/lib/python3.9/site-packages/firebird/base/init.py && \
     rm -rf /tmp && \
     adduser \
         --disabled-password \
@@ -35,5 +39,5 @@ RUN python -m venv /py && \
 
 ENV PATH="/py/bin:$PATH"
 
-USER django-user 
-# USER root
+# USER django-user 
+USER root
